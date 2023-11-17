@@ -1,0 +1,99 @@
+<main>
+    {{#with person}}
+        <section>
+            <hr>
+            {{> title data="Bio Emma Johnson" big=true}}
+            <div><b>Name:</b>{{name}}</div>
+            <div><b>Age:</b>{{age}}</div>
+            <div><b>Gender:</b>{{gender}}</div>
+            <br>
+            <Address>                                 
+                    {{#with address}}
+                        {{street}}.
+                        {{city}}.
+                        {{state}}.
+                        {{zip}}.
+                        {{country}}                         
+                    {{/with}}                
+            </Address>
+            <br>
+            <hr>
+            {{> title data="Education" big=false}}
+            <div>
+                <ul>
+                    {{#each education}}
+                        <li>{{degree}}</li>
+                        <li>{{major}}</li>
+                        <li>{{university}}</li>
+                        <li>{{graduationYear}}</li>                        
+                    {{/each}}
+                </ul>
+            </div>
+            <br>
+            <hr>
+            {{> title data="WorkExperience" big=false}}  
+            <ul>
+                {{#each workExperience}}                   
+                    <li>{{company}}</li>
+                    <li>{{title}}</li>
+                    <li>{{startDate}} - {{endDate}}</li>
+                    <li>"{{responsibilities}}"</li>
+                    <li>{{year_founded}}</li>
+                    <li>{{industry}}</li>
+            </ul>
+                <hr>
+                {{> title data="Employees" big=false}}
+                <ul>                   
+                    {{#each employees}}
+                        <li>{{name}}</li>
+                        <li>{{position}}</li>
+                        <li>{{department}}</li>
+                </ul>
+                <hr>
+                {{> title data="Projects" big=false}}              
+                        {{#each projects}}
+                            <b>Name:</b>{{name}}
+                            <p>"{{description}}"</p>
+                            <li>{{status}}</li>
+                <hr>
+                {{> title data="Teams" big=false}}
+                            {{#each teams}}
+                                <b>Name:</b>{{team_name}}
+                                <p><b>Leader</b></p>
+                                {{#with team_leader}}
+                                    <li>{{name}}</li>
+                                    <li>"{{title}}"</li>
+                                    <li><a href={{email}} target="_blank">Email</a></li>
+                                {{/with}}
+                <hr>
+                {{> title data="Members" big=false}}                
+                                {{#each team_members}}
+                                    <li>{{name}}</li>
+                                    <li>"{{title}}"</li>
+                                    <li><a href={{email}} target="_blank">Email</a></li>
+                                    <li>{{skills}}</li>
+                <br>                
+                                    {{#each projects}}
+                                        {{#each team_members}}
+                                        <br>   
+                                            <li>{{name}}</li>                                       
+                                            <li>"{{title}}"</li>
+                                        {{/each}}
+                                    {{/each}}                                 
+                <hr>
+                {{> title data="Projects" big=false}}
+                                    {{#each projects}}
+                                        <li>{{name}}</li>
+                                        <li>"{{description}}"</li>
+                                        <li>{{technologies}}</li>                                                                                
+                                    {{/each}}
+                                {{/each}}
+                            {{/each}}
+                        {{/each}}
+                    {{/each}}
+                    
+                {{/each}}               
+                 
+        </section>
+    {{/with}}
+</main>
