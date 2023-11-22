@@ -1,0 +1,68 @@
+<main>
+    {{> title data="Excursion" big=true}}
+    <div>
+        {{#with program.excursion}}
+            <h3>{{name}}</h3>
+            <address>{{location.city}}, {{location.country}}</address>
+        {{/with}}
+        <br>
+        <data>{{program.excursion.date}}</data>
+    </div>
+    <hr>
+    <section>
+        <div>
+            {{#each program.excursion.program}}
+            <br>
+            <br> 
+                <b>{{name}}</b>
+                <div>{{type}}</div>
+                <div>Duration:{{duration}}</div>
+            <br>   
+                {{#with details.museum}}
+                    <b>{{name}}</b>
+                    {{#with location}}
+                        <address>{{address}}</address>
+                        <address>{{city}},{{country}}</address>
+                    {{/with}}
+                    {{> title data="Exhibits" big=false}}
+                    {{#each exhibits}}
+                        <br>
+                        <li>Name:"{{name}}"</li>
+                        {{#if artist}}
+                            <li>Artist:"{{artist}}"</li>
+                        {{else}}
+                            <li>Artist:(unknown)</li>
+                        {{/if}}
+                        <li>"{{description}}"</li>
+                        {{#if audio_guide}} {{/if}}
+                    {{/each}}
+                {{/with}}
+                <br>
+                
+                {{#each details.performers}}
+                {{#if title}} {{> title data="Performers" big=false}} {{/if}}
+                <br>                    
+                    <li>{{name}}</li>
+                    <li>{{type}}</li>
+                {{/each}}
+                {{#with details.venue}}
+                    {{> title data="Venue" big=false}}
+                    <li>{{name}}</li>
+                    {{#with location}}
+                        <address>{{address}} </address>
+                        <address>{{city}} {{country}}</address>
+                    {{/with}}
+                    <br>
+                {{/with}}
+                
+                {{#with details.guide}}
+                    <div>Name:{{name}}</div>
+                    <div>Language:{{language}}</div>
+                    <div>Rating:{{rating}}</div>
+                {{/with}}
+                <hr>
+                
+            {{/each}}
+        </div>
+    </section>
+</main>
