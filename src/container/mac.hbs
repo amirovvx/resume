@@ -1,0 +1,85 @@
+<div>
+    <main>
+        <section>
+            <hr>
+            <b>Name:{{name}}</b>
+            <b><p>"{{description}}"</p></b>
+            <b>Price:{{price}}</b>
+            <div><b>Category:{{category}}</b></div>
+            <hr>
+            {{#with features}}
+                {{> title data="Features" big=true}}
+                <hr>
+                {{> title data="Processor" big=false}}
+                <ul>
+                    {{#each processor}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Memory" big=false}}
+                <ul>
+                    {{#each memory}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Storage" big=false}}
+                <ul>
+                    {{#each storage}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Display" big=false}}
+                <ul>
+                    {{#each display}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Graphics" big=false}}
+                <ul>
+                    {{#each graphics}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Ports" big=false}}
+                    {{#each ports}}
+                        <li>Type:{{type}}</li>
+                        <li>Count:{{count}}</li>
+                        <br>                        
+                        <ul>                            
+                            {{#each features}}
+                                <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    {{/each}}
+                {{> title data="Battery" big=false}}
+                <ul>
+                    {{#each battery}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{> title data="Weight" big=false}}
+                    <li>{{weight}}</li>
+                    <br>
+                    {{> title data="Dimensions" big=false}}
+                    {{#each dimensions}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                    <br>
+                {{> title data="Operating system" big=false}}
+                    <li>{{operating_system}}</li>
+                    <br>
+                {{> title data="Accessories" big=false}}
+                    {{#each accessories}}
+                        <br>
+                        <li>{{name}}</li>
+                        <li>{{price}}</li>
+                    {{/each}}
+                    <hr>
+
+
+            {{/with}}
+
+            
+        </section>
+    </main>
+</div>
