@@ -1,0 +1,75 @@
+<div>
+    <br>
+    <h1>{{name}}</h1>
+        <main>
+            <section>
+                <hr>
+                {{#each users}}
+                    {{> title data="User" big=true}}
+                    <li>ID:{{id}}</li>
+                    <li>Name:{{name}}</li>
+                    <li>Gender:{{gender}}</li>
+                    <li>Age:{{age}}</li>
+                    <br>                                      
+                    {{#each friends}}
+                        {{> title data="Friend" big=false}}
+                        <li>ID:{{id}}</li>
+                        <li>Name:{{name}}</li>
+                        <li>Gender:{{gender}}</li>
+                        <li>Age:{{age}}</li>
+                        <br>                       
+                        {{#each mutual_friends}}
+                            {{> title data="Mutual friend" big=false}}
+                            <li>ID:{{id}}</li>
+                            <li>Name:{{name}}</li>
+                            <li>Gender:{{gender}}</li>
+                            <li>Age:{{age}}</li>
+                        <br>
+                            {{#each mutual_friends}}
+                            {{> title data="Mutual friend" big=false}}
+                            <li>ID:{{id}}</li>
+                            <li>Name:{{name}}</li>
+                            <li>Gender:{{gender}}</li>
+                            <li>Age:{{age}}</li>
+                            <br>                           
+                            {{/each}}                            
+                        {{/each}}
+                        {{#each groups}}
+                        <hr>
+                            {{> title data="Group" big=true}}
+                            <li>ID:{{id}}</li>
+                            <li>Name:{{name}}</li>
+                            <li>"{{description}}"</li>
+                            <br>
+                            {{#each members}}
+                                {{> title data="Member" big=false}}
+                                <li>ID:{{id}}</li>
+                                <li>Name:{{name}}</li>
+                                <li>Gender:{{gender}}</li>
+                                <li>Age:{{age}}</li>
+                                <br>                        
+                            {{/each}}
+                        {{/each}}
+                    {{/each}}
+                {{#each groups}}
+                <hr>
+                    {{> title data="Group" big=true}}
+                    <li>ID:{{id}}</li>
+                    <li>Name:{{name}}</li>
+                    <li>"{{description}}"</li>
+                    <br>
+                    {{#each members}}
+                        {{> title data="Member" big=false}}
+                        <li>ID:{{id}}</li>
+                        <li>Name:{{name}}</li>
+                        <li>Gender:{{gender}}</li>
+                        <li>Age:{{age}}</li>
+                        <br>                        
+                    {{/each}}                   
+                {{/each}}                
+                <hr>
+                {{/each}}
+            </section>
+        </main>
+    
+</div>
