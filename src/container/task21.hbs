@@ -50,27 +50,32 @@
   <br>
   <section class="card">
     {{#with nested_display}}
-      <div class="display-1">{{title}}</div>  
-      <br>    
-        <div class="card">
-          {{#with children_display}}
-            <div class="card-body">
-              <div class="display-4">{{title}}</div>
-              <p>"{{text}}"</p>
-              <button class="btn btn-warning">{{button.text}}</button>
-            </div>
-          {{/with}}         
-        </div>
-      <br>
-      <h6>{{header_text}}</h6>
-      <button class="btn btn-info">{{button.text}}</button>
+      <div class="card-body">
+        <div class="display-1">{{title}}</div>  
+        <br>    
+          <div class="card">
+            {{#with children_display}}
+              <div class="card-body">
+                <div class="display-4">{{title}}</div>
+                <p>"{{text}}"</p>
+                <button class="btn btn-warning">{{button.text}}</button>
+              </div>
+            {{/with}}         
+          </div>
+        <br>
+        <h6>{{header_text}}</h6>
+        <button class="btn btn-info">{{button.text}}</button>
+      </div>
     {{/with}}
   </section>
+  <br>
   <section class="card">
     {{#with paragraph}}
-      <p>{{title}}</p>
-      <p>"{{text}}"</p>
-      <a href="{{button.url}}" class="btn btn-link">{{button.text}}</a>
+      <div class="card-body">
+        <p class="text-uppercase">{{title}}</p>
+        <p class="text-lowercase">"{{text}}"</p>
+        <a href="{{button.url}}" class="btn btn-link">{{button.text}}</a>
+      </div>
       <br>
       <div class="card">
         <div class="card-body">
