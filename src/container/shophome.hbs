@@ -1,0 +1,123 @@
+<main>
+<hr>
+    <nav class="nav">
+        {{#each navigation.links}}
+            <div class="nav-item">
+                <a href="{{href}}" class="nav-link active" target="_blank">{{text}}</a>  
+            </div>
+        {{/each}}
+        <div class="nav-item">
+            <a href="#" class="nav-link disabled">Disabled</a>  
+        </div>
+    </nav>
+<hr>
+<section>
+    {{#with newsBlock}}
+        <h2 class="text-center">{{title}}</h2>
+        <div class="row">
+            {{#each cards}}
+                <div class="col-3 p-1">
+                <div class="card text bg-dark text-light">
+                    <div class="card-body">
+                        <p>
+                            <h6 class="card-title">{{title}}
+                                {{#if isNew includeZero=true}}
+                                    <span class="badge rounded-pill text-bg-success m-1">New</span>
+                                {{/if}}
+                                {{#if isTop}}
+                                    <span class="badge rounded-pill text-bg-danger m-1">Top</span>
+                                {{/if}}
+                            </h6>
+                        </p>
+                        <p>"{{description}}"</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    {{/with}}
+</section>
+<hr>
+<section>
+    {{#with goodsBlock}}
+        <nav class="nav nav-tabs m-1">
+            {{#each tabs}}
+                {{#if isActive}}
+                    <div class="nav-item">
+                        <b><a href="#" class="nav-link active" alt="Active">{{text}}</a></b>
+                    </div>
+                {{else if isDisabled}}
+                    <div class="nav-item">
+                        <a href="#" class="nav-link disabled">{{text}}</a>
+                    </div>
+                {{else}}
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" alt="Inactive">{{text}}</a>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </nav>   
+        <br> 
+        <div class="row gx-2 gy-4">
+            {{#each cards}}
+                <div class="col-4">        
+                    <div class="card">
+                        <img class="card-img-top" src="{{image}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{title}}</h5>
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/with}}
+</section>
+<hr>
+<section class="py-4 ps-0 pe-0">
+    <div class="card bg-dark">
+        {{#with subscribe}}
+            <div class="card-body text-light">
+                <h2>{{header}}</h2>
+                <br>
+                <p>"{{description}}"</p>
+                {{#each buttons}}
+                    <div class="flex-column my-2">
+                        <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</section>
+<hr>
+<section class="py-4 ps-0 pe-0">
+    <div class="card bg-success">
+        {{#with service}}
+            <div class="card-body text-light">
+                <h2 class="text-center">{{title}}</h2>
+                <br>
+                <p class="text-center">{{description}}</p>
+                {{#each buttons}}
+                    <div class="flex-column my-2 text-center">
+                        <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</section>
+<hr>
+<footer class="ms-0 me-0">
+    <div class="nav">
+        {{#each footer}}
+            <nav class="nav-item col-2 my-2 ps-0 pe-0 mt-0 ms-0 me-0">
+                {{#each this}}
+                    <a href="{{link}}" target="_blank" class="nav-link active">{{text}}</a>
+                {{/each}}
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </nav>
+        {{/each}}
+    </div>
+</footer>
+</main>
