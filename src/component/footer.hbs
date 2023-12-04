@@ -3,16 +3,15 @@
           <hr>
           <br>
           {{#with social}}
-              {{#with email}}
-                  {{> link blank=true }}
-              {{/with}}
-              {{#with phone}}
-                  {{> link blank=true }}
-              {{/with}}
-              {{#with linkedin}}
-                  {{> link blank=true noLine=true}}
-              {{/with}}
-          
+            {{#with email}}
+                {{> link blank=true }}
+            {{/with}}
+            {{#with phone}}
+                {{> link blank=true }}
+            {{/with}}
+            {{#with linkedin}}
+                {{> link blank=true noLine=true}}
+            {{/with}}       
           {{/with}}
           <div>
             <em>Copyright by {{../header.name.firstname}} {{../header.name.lastname}}</em>
