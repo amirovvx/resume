@@ -1,0 +1,184 @@
+<main class="ms-0 me-0 ps-0 pe-0">
+    <nav class="nav ms-0 ps-0">
+        {{#each navigation.links}}
+            <div class="nav-item">
+                {{#if href}}
+                    <a href="{{href}}" class="nav-link active" target="_blank">{{text}}</a> 
+                {{/if}}                    
+            </div>
+        {{/each}}
+        <a class="nav-link disabled" target="_blank">Disabled</a>
+    </nav>
+    <hr>
+    <section class="ms-0 me-0 ps-0 pe-0">
+        <h1>{{header}}</h1>
+        {{#with purchase}}
+            <nav class="nav ms-0 ">
+                {{#each tabs}} 
+                <div class="nav-tabs">                  
+                    {{#if @first}}
+                        <div class="nav-item">
+                            <b><a href="#" class="nav-link active" alt="Active">{{this}}</a></b>
+                        </div>
+                    {{else}}
+                        <div class="nav-item"></div>
+                            <a href="#" class="nav-link disabled text-primary">{{this}}</a>
+                        </div>
+                    {{/if}}
+                </div>
+                {{/each}}               
+            </nav>
+            <hr class="mt-0">
+            <div class="row">
+                {{#with actionBlock}}
+                    <div class="col-4">
+                        <input class="form-control" placeholder="{{input.placeholder}}">
+                    </div>
+                    {{#each buttons}}
+                        <div class="col-2 m-0 p-0">
+                            {{#if isSuccess}}
+                                <a href="{{link}}" target="_blank" class="btn btn-success btn-sm">{{text}}</a>
+                            {{else isOutline}}
+                                <a href="{{link}}" target="_blank" class="btn btn-outline-success btn-sm">{{text}}</a>
+                            {{else isDanger}}
+                                <a href="{{link}}" target="_blank" class="btn btn-outline-danger btn-sm">{{text}}</a>
+                            {{/if}}
+                        </div>
+                    {{/each}}
+                {{/with}}
+            </div>
+        {{/with}}
+    </section>
+    <hr>
+    <section class="ms-0 me-0 ps-0 pe-0">
+        {{> purchaseItem}}
+    </section>
+    <hr>
+    <section>
+        {{#with userInfo}}
+            <h2>{{title}}</h2>
+            <br>
+            <div class="row">
+                <div class="card ms-0 me-0 m-3 p-3">
+                    <h3 class="my-2">{{profileData.title}}</h3>                        
+                    {{#with profileData.fullName}}
+                        <div class="card my-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div>{{surname.title}}</div>
+                                        <b>{{surname.value}}</b>
+                                    </div>
+                                    <div class="col-4">
+                                        <div>{{name.title}}</div>
+                                        <b>{{name.value}}</b>
+                                    </div>
+                                    <div class="col-4">
+                                        <div>{{middleName.title}}</div>
+                                        <b>{{middleName.value}}</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/with}}
+                    {{#with profileData.otherInfo}}
+                        <div class="card my-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div>{{birthday.title}}</div>
+                                        <b>{{birthday.value}}</b>
+                                    </div>
+                                    <div class="col-4">
+                                        <div>{{sex.title}}</div>
+                                        <b>{{sex.value}}</b>
+                                    </div>
+                                    <div class="col-4">
+                                        <div>{{language.title}}</div>
+                                        <b>{{language.value}}</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/with}}                    
+                    <div class="card my-3">
+                        <div class="card-body">                            
+                            <div class="row">
+                                {{#each buttons}}
+                                    <div class="col-4">
+                                        {{#if isPrimary}}
+                                            <a href="{{link}}" target="_blank" class="btn btn-primary">{{text}}</a>
+                                        {{else isSecondary}}
+                                            <a href="{{link}}" target="_blank" class="btn btn-outline-secondary">{{text}}</a>
+                                        {{else isDanger}}
+                                            <a href="{{link}}" target="_blank" class="btn btn-outline-danger">{{text}}</a>
+                                        {{/if}}
+                                    </div> 
+                                {{/each}}                              
+                            </div>                            
+                        </div>
+                    </div>                   
+                </div>
+                {{#with recipients}}
+                    <div class="card ms-0 me-0 m-3 p-3">
+                        <h3 class="my-2">{{title}}</h3>            
+                        <div class="row">
+                            {{#each users}}
+                                <div class="col-5">
+                                    <div class="card">                                        
+                                        <div class="card-body p-2">
+                                            <b>{{name}}</b>
+                                            <div class="py-2">{{phone}}</div>
+                                            <a href="{{button.link}}" target="_blank" class="btn btn-sm btn-primary">{{button.text}}</a>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>                        
+                    </div>
+                {{/with}}
+                {{#with contacts}}
+                    <div class="card ms-0 me-0 m-3 p-3">
+                        <h3 class="my-2">{{title}}</h3>            
+                        <div class="row">
+                            {{#each contactData}}
+                                <div class="col-4">
+                                    <div class="card">                                        
+                                        <div class="card-body">
+                                            <div>{{title}}</div>
+                                            <b class="py-2">{{value}}</b>
+                                            {{#with button}}
+                                                {{#if isPrimary}}
+                                                    <a href="{{link}}" target="_blank" class="my-2 btn btn-sm btn-primary">{{text}}</a>
+                                                {{/if}}
+                                                {{#if isSecondary}}
+                                                    <a href="{{link}}" target="_blank" class="my-2 btn btn-sm btn-outline-secondary">{{text}}</a>
+                                                {{/if}}
+                                                {{#if isDanger}}
+                                                    <a href="{{link}}" target="_blank" class="my-2 btn btn-sm btn-outline-danger">{{text}}</a>
+                                                {{/if}}
+                                            {{/with}}
+                                        </div>                                   
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>                        
+                    </div>
+                {{/with}} 
+            </div>
+        {{/with}}
+    </section>
+    <hr />
+    <footer class="ms-0 me-0">
+        <div class="nav">
+            {{#each footer}}
+                <nav class="nav-item col-2 my-2 ps-0 pe-0 mt-0 ms-0 me-0">
+                    {{#each this}}
+                        <a href="{{link}}" target="_blank" class="nav-link active">{{text}}</a>
+                    {{/each}}
+                    <a href="#" class="nav-link disabled">Disabled</a>
+                </nav>
+            {{/each}}
+        </div>
+    </footer>
+</main>

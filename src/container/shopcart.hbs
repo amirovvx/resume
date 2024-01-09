@@ -18,7 +18,9 @@
     </header>
     <hr>
     <section class="m-0 p-0">
-        {{> cartGoodsItem}}
+        {{#each goodsBlock}}
+            {{> cartGoodsItem}}
+        {{/each}}
     </section>
     <hr>
     <section>
