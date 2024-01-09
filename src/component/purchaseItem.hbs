@@ -1,0 +1,26 @@
+{{#each purchase.itemList}}
+    <div class="list-group ">               
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-4 ps-0">                   
+                    <div>{{number}}</div>
+                    <b>{{status}}</b>
+                </div>
+                <div class="col-2 ps-0">
+                    <div>{{amount.title}}</div>
+                    <div>{{amount.value}}</div>
+                </div>                        
+                <div class="col-4 ps-0">
+                    {{#each images}}
+                        <img width="60" src="{{this}}">
+                    {{/each}}
+                </div>
+                <div class="col-2 ps-0 p-1">
+                    {{#unless isPrimary}}
+                        <a href="{{button.link}}" target="_blank" class="btn btn-primary btn-sm">{{button.text}}</a>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>               
+    </div>
+{{/each}}
