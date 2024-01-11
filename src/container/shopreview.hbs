@@ -1,0 +1,108 @@
+<div class="ms-0 ps-0">
+    <nav class="nav ms-0 ps-0">
+        {{#each navigation.links}}
+            <div class="nav-item">
+                {{#if href}}
+                    <a href="{{href}}" class="nav-link active" target="_blank">{{text}}</a> 
+                {{/if}}                    
+            </div>
+        {{/each}}
+        <a class="nav-link disabled" target="_blank">Disabled</a>
+    </nav>
+    <hr>
+    <section class="row">
+        <div class="col-8">
+            {{#with formBlock}}
+                <div class="h2 pb-2">{{header}}</div>
+                <div>{{rating.title}}:{{rating.value}}</div>          
+                <nav class="nav ms-0 ">
+                    {{#each actionBlock.tabs}} 
+                        <div class="nav-tabs"> 
+                            {{#unless isActive}}                                         
+                                <div class="nav-item">
+                                    <a href="#" class="nav-link disabled text-primary">{{this.text}}</a>
+                                </div>
+                            {{else}}
+                                <div class="nav-item">
+                                    <b><a href="#" class="nav-link active" alt="Active">{{this.text}}</a></b>
+                                </div>
+                            {{/unless}}
+                        </div>
+                    {{/each}}                              
+                </nav>  
+                <hr class="ms-0 ps-0 mb-5">
+                <div class="card my-3">
+                    {{#with actionBlock.report}}
+                        <div class="card-body">
+                            <div>{{title}}</div>
+                            <a href="{{button.link}}" target="_blank" class="btn btn-sm btn-secondary">{{button.text}}</a>
+                        </div>
+                    {{/with}}
+                </div>
+                <hr class="ms-0 ps-0 mt-5">
+                {{#with feedbackBlock}}
+                    <div class="h3 mb-5">{{title}}</div>
+                    {{#each buttons}}
+                        {{#if isWarning}}
+                            <a href="{{link}}" target="_blank" class="btn btn-sm btn-warning">{{text}}</a>
+                        {{else isSuccess}}
+                            <a href="{{link}}" target="_blank" class="btn btn-sm btn-success">{{text}}</a>
+                        {{else isDanger}}
+                            <a href="{{link}}" target="_blank" class="btn btn-sm btn-danger">{{text}}</a>
+                        {{/if}}
+                    {{/each}}
+                {{/with}}
+            {{/with}}
+        </div>
+        <div class="col-4">            
+            {{#with formBlock.goodsInfo}}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img src="{{photo}}">
+                        <div><b>{{name}}</b></div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="py-2"><b>{{price}}</b></div>
+                        {{#each buttons}}
+                            {{#if isPrimary}}
+                                <a href="{{link}}" target="_blank" class="btn btn-sm btn-primary">{{text}}</a>
+                            {{else isSecondary}}
+                                <a href="{{link}}" target="_blank" class="my-2 btn btn-sm btn-secondary">{{text}}</a>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body py-3">
+                        <div>{{seller.title}}:<b>{{seller.value}}</b></div>
+                    </div>
+                </div>
+            {{/with}}           
+        </div>
+    </section>
+    <hr>
+</div>
+
+{{> reviewItem}}
+<section class="py-4 ps-0 pe-0">
+    <div class="card bg-success">
+        {{#with service}}
+            <div class="card-body text-light">
+                <h2 class="text-center">{{title}}</h2>
+                <br>
+                <p class="text-center">{{description}}</p>
+                {{#each buttons}}
+                    <div class="flex-column my-2 text-center">
+                        <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</section>
+<hr>
+<div>
+    {{> footerBootstrap}}
+</div>
