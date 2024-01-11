@@ -1,0 +1,12 @@
+<footer class="ms-0 me-0">
+    <div class="nav">
+        {{#each footer}}
+            <nav class="nav-item col-2 my-2 ps-0 pe-0 mt-0 ms-0 me-0">
+                {{#each this}}
+                    <a href="{{link}}" target="_blank" class="nav-link active">{{text}}</a>
+                {{/each}}
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </nav>
+        {{/each}}
+    </div>
+</footer>
