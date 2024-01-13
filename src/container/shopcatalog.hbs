@@ -1,0 +1,94 @@
+<div class="pb-5">
+    {{> navBootstrap}}
+</div>
+<div class="breadcrumb pb-3">
+    {{#each breadcrumb}}
+        <div class="breadcrumb-item">
+            {{#if url}}
+                <a href="{{url}}" target="_blank">{{name}}</a>
+            {{else}}
+                <a href="{{url}}" target="_blank" class="text-dark">{{name}}</a>
+            {{/if}}
+        </div>
+    {{/each}}
+</div>
+<h1 class="pb-3">{{header}}</h1>
+<div class="row">
+    {{#each sortBlock}}
+        <div class="col-3 pb-4">
+            <select class="form-select">
+                <option disabled selected>{{placeholder}}</option>
+                {{#each options}}
+                    <option value="{{this.value}}">{{this.text}}</option>
+                {{/each}}
+            </select>
+        </div>
+    {{/each}} 
+</div> 
+<section class="row p-0"> 
+    <div class="col-4">
+        <div class="card px-2">
+            {{#with filterBlock}}
+                <div class="pb-3">{{sellers.title}}</div>
+                {{#each sellers.list}}
+                    <div class="form-check">
+                        <label class="form-check-label">{{value}}</label>
+                        <input type="checkbox" name="options" class="form-check-input">
+                    </div>
+                {{/each}}
+                <hr>
+                <div class="pb-3">{{brands.title}}</div>
+                <input class="form-control mb-3" placeholder="{{brands.input.placeholder}}">
+                {{#each brands.options}}
+                    <div class="form-check">
+                        <label class="form-check-label">{{value}}</label>
+                        <input type="checkbox" name="options" class="form-check-input">
+                    </div>
+                {{/each}}
+                <hr>
+                <div class="pb-3">{{price.title}}</div>
+                <input class="form-control mb-3" placeholder="{{price.range.from}}">
+                <input class="form-control mb-3" placeholder="{{price.range.to}}">
+                <div>
+                    <a href="{{price.button.link}}" target="_blank" class="py-1 btn btn-outline-secondary">{{price.button.text}}</a>
+                </div>
+                <hr>
+                {{#each filterList}}
+                    <div class="pb-3">{{title}}</div>
+                    {{#each options}}
+                        <div class="form-check">
+                            
+                            <label class="form-check-label">{{this.value}}</label>
+                            <input type="checkbox" name="options"  class="form-check-input">
+                            
+                        </div>
+                    {{/each}}
+                    <hr>
+                {{/each}}
+            {{/with}}
+        </div>
+    </div>
+    <div class="col-8 ps-0 pe-0">
+        {{> catalogItem}}
+    </div>
+</section>
+<section class="py-4 ps-0 pe-0">
+    <div class="card bg-success">
+        {{#with service}}
+            <div class="card-body text-light">
+                <h2 class="text-center">{{title}}</h2>
+                <br>
+                <p class="text-center">{{description}}</p>
+                {{#each buttons}}
+                    <div class="flex-column my-2 text-center">
+                        <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </div>
+</section>
+<hr>
+<div>
+    {{> footerBootstrap}}
+</div>

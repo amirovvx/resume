@@ -1,0 +1,10 @@
+<nav class="nav ms-0 ps-0">
+    {{#each navigation.links}}
+        <div class="nav-item">
+            {{#if href}}
+                <a href="{{href}}" class="nav-link active" target="_blank">{{text}}</a> 
+            {{/if}}                    
+        </div>
+    {{/each}}
+    <a class="nav-link disabled" target="_blank">Disabled</a>
+</nav>

@@ -15,18 +15,18 @@
         {{#with purchase}}
             <nav class="nav ms-0 ">
                 {{#each tabs}} 
-                <div class="nav-tabs">                  
-                    {{#if @first}}
-                        <div class="nav-item">
-                            <b><a href="#" class="nav-link active" alt="Active">{{this}}</a></b>
-                        </div>
-                    {{else}}
-                        <div class="nav-item"></div>
-                            <a href="#" class="nav-link disabled text-primary">{{this}}</a>
-                        </div>
-                    {{/if}}
-                </div>
-                {{/each}}               
+                    <div class="nav-tabs">                  
+                        {{#if @first}}
+                            <div class="nav-item">
+                                <b><a href="#" class="nav-link active" alt="Active">{{this}}</a></b>
+                            </div>
+                        {{else}}
+                            <div class="nav-item"></div>
+                                <a href="#" class="nav-link disabled text-primary">{{this}}</a>
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/each}}                              
             </nav>
             <hr class="mt-0">
             <div class="row">
