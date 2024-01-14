@@ -4,11 +4,10 @@ const express = require('express')
 const router = express.Router()
 
 // ================================================================
-
 var header = {
   name: {
-    firstname: 'Ivan',
-    lastname: 'Ivanov',
+    firstname: 'Shahzod',
+    lastname: 'Amirov',
   },
 
   position: 'Junior Fullstack JS Developer',
@@ -44,7 +43,155 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+
+    header: {
+      firstname: 'Shahzod',
+      lastname: `Amirov`,
+      value: `Resume Project`,
+    },
+    
+    main: {
+      title: `Список страниц`,
+      text: 
+        `"Добро пожаловать на мою веб-платформу 'Resume'! Здесь вы найдете уникальное воплощение моей практики HTML, представленное в виде многостраничного резюме. Используя разнообразные идеи и творческий подход, я создал различные страницы, каждая из которых отражает определенные аспекты моего опыта и навыков. Переходите между страницами, чтобы узнать больше о моем профессиональном пути, проектах и умениях. Благодарю за интерес к моему резюме!"`,
+    },
+
+    paths: {
+      title: `Меню`,
+      links: [
+        {
+          text: 'Skills',
+          href: '/skills',
+          isOld: true,
+        },
+        {
+          text: 'Summary',
+          href: '/summary',
+          isOld: true,
+        },
+        {
+          text: 'Work',
+          href: '/work',
+          isOld: true,
+        },
+        {
+          text: 'Education',
+          href: '/education',
+          isOld: true,
+        },
+        {
+          text: `Bio`,
+          href: `/bio`,
+          isNew: true,
+        },
+        {
+          text: 'Car',
+          href: '/car',
+          isNew: true,
+        },
+        {
+          text: 'Facebook',
+          href: '/facebook',
+          isNew: true,
+        },
+        {
+          text: 'JS',
+          href: '/js',
+          isNew: true,
+        },
+        {
+          text: 'Mac',
+          href: '/mac',
+          isNew: true,
+        },
+        {
+          text: 'Person',
+          href: '/person',
+          isNew: true,
+        },
+        {
+          text: 'Program',
+          href: '/program',
+          isNew: true,
+        },
+        {
+          text: 'Web',
+          href: '/web',
+          isNew: true,
+        },
+        {
+          text: 'Task 2.1',
+          href: '/task21',
+          isHot: true,
+        },
+        {
+          text: 'Task 2.2',
+          href: '/task22',
+          isHot: true,
+        },
+        {
+          text: 'Task 3.1',
+          href: '/task31',
+          isHot: true,
+        },
+        {
+          text: 'Shop Home',
+          href: '/shophome',
+          isShop: true,
+        },
+        {
+          text: 'Shop Cart',
+          href: '/shopcart',
+          isShop: true,
+        },
+        {
+          text: 'Shop Catalog',
+          href: '/shopcatalog',
+          isShop: true,
+        },
+        {
+          text: 'Shop Order',
+          href: '/shoporder',
+          isShop: true,
+        },
+        {
+          text: 'Shop Profile',
+          href: '/shopprofile',
+          isShop: true,
+        },
+        {
+          text: 'Shop Review',
+          href: '/shopreview',
+          isShop: true,
+        },
+      ],
+    },
+
+    footer: {
+      firstname: 'Shahzod',
+      lastname: `Amirov`,
+      address: 'Hannover, Lower Saxony',
+      
+      social: {
+        email:{
+          text:'amirovvx@outlook.com',
+          href:'mailto:amirovvx@outlook.com',
+        },
+    
+        phone: {
+          text:'+491784442524',
+          href:'tel:+491784442524',
+        },
+    
+        instagram:{
+          text:'Instagram',
+          href:'https://www.instagram.com/amirovvx',
+        },
+      },
+    },
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
