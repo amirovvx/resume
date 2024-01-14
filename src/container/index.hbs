@@ -1,15 +1,75 @@
 {{!-- 
 Це код container файлу для index сторінки, 
-в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
- --}}
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/" --}}
+<br>
 
-<div class="p-5">
-    <h1>USB хаб Type C 12 в 1 HDMI VGA AUX 3.5 mm</h1>
-
-    <button type="button" class="btn btn-primary">Купити</button>
-</div>
-
-{{!-- 
-    Цей код містить лише те, що буде виводитись в <body>
-    Адже наш layout/default.hbs має вже структуру HTML
---}}
+<hr>
+<section>
+    <h1 class="text-center">{{main.title}}</h1>
+    <p class="h6 text-center">{{main.text}}</p>
+</section>
+<hr>
+<section class="card p-0">
+    {{#with paths}}
+        <div class="card-header p-0 h2 text-center">{{title}}</div>
+            <div class="card-body">
+                {{#each links}}
+                    <div class="row my-2 mx-5">
+                        {{#if isOld}}                               
+                            <a href="{{href}}" class="btn btn-outline-primary">{{text}}</a>
+                        {{/if}}
+                    </div>
+                    <div class="row mx-5">
+                        {{#if isNew}}
+                            <a href="{{href}}" class="btn btn-outline-secondary">{{text}}</a>
+                        {{/if}}
+                    </div>
+                    <div class="row mx-5">
+                        {{#if isHot}}
+                            <a href="{{href}}" class="btn btn-outline-warning">{{text}}</a>
+                        {{/if}}
+                    </div>
+                    <div class="row mx-5">
+                        {{#if isShop}}
+                            <a href="{{href}}" class="btn btn-outline-success">{{text}}</a>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/with}}
+</section>
+<hr>
+<footer class="card m-0">
+    <div style="background-color: rgb(198, 229, 253);">
+        {{#with footer}}
+            {{#with social}}
+                <div class="breadcrumb">
+                    {{#with email}}
+                        <div class="breadcrumb-item">
+                            <a href={{href}} target="_blank">{{text}}</a>
+                        </div>
+                    {{/with}}
+                    {{#with phone}}
+                        <div class="breadcrumb-item">
+                            <a href={{href}} target="_blank">{{text}}</a>
+                        </div>
+                    {{/with}}
+                    {{#with instagram}}
+                        <div class="breadcrumb-item">
+                            <a href={{href}} target="_blank">{{text}}</a>
+                        </div>
+                    {{/with}}
+                </div>
+            {{/with}}
+            <div>
+                <em>Copyright by {{firstname}} {{lastname}}</em>
+            </div>
+            <br>
+            <div>
+                <em>{{address}}</em>
+            </div>
+        {{/with}}
+    </div>
+</footer>
+<br>
